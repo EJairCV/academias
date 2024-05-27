@@ -33,7 +33,7 @@
       
   </form>
   <div class="justify-content-between d-flex mx-3">
-    <button id="form" type="submit" class="btn btn-outline-primary ">Registrar</button>
+    <button form="form" type="submit" class="btn btn-outline-primary ">Registrar</button>
     <a href="{{route('material.index')}}"><button type="button" class="btn btn-outline-secondary">Regresar</button></a>
   </div>
 </div>
