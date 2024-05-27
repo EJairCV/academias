@@ -11,23 +11,23 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset ('fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('fonts/icomoon/style.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('css/bootstrap/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{ asset ('css/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{ asset ('css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{ asset ('css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{ asset ('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/bootstrap/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/owl.theme.default.min.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('css/jquery.fancybox.min.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/jquery.fancybox.min.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/bootstrap-datepicker.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('fonts/flaticon/font/flaticon.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('fonts/flaticon/font/flaticon.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('css/aos.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/aos.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('css/style.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/style.css')}}">
     
 </head>
 <body>
@@ -60,20 +60,20 @@
       </div>
    
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
-    <script src="{{ asset('js/jquery-3.3.1.min.js')}}"></script>
-  <script src="{{ asset ('js/jquery-migrate-3.0.1.min.js')}}"></script>
-  <script src="{{ asset ('js/jquery-ui.js')}}"></script>
-  <script src="{{ asset ('js/popper.min.js')}}"></script>
-  <script src="{{ asset ('js/bootstrap.min.js')}}"></script>
-  <script src="{{ asset ('js/owl.carousel.min.js')}}"></script>
-  <script src="{{ asset ('js/jquery.stellar.min.js')}}"></script>
-  <script src="{{ asset ('js/jquery.countdown.min.js')}}"></script>
-  <script src="{{ asset ('js/bootstrap-datepicker.min.js')}}"></script>
-  <script src="{{ asset ('js/jquery.easing.1.3.js')}}"></script>
-  <script src="{{ asset ('js/aos.js')}}"></script>
-  <script src="{{ asset ('js/jquery.fancybox.min.js')}}"></script>
-  <script src="{{ asset ('js/jquery.sticky.js')}}"></script>
-  <script src="{{ asset ('js/jquery.mb.YTPlayer.min.js')}}"></script>
+    <script src="{{ secure_asset('js/jquery-3.3.1.min.js')}}"></script>
+  <script src="{{ secure_asset ('js/jquery-migrate-3.0.1.min.js')}}"></script>
+  <script src="{{ secure_asset ('js/jquery-ui.js')}}"></script>
+  <script src="{{ secure_asset ('js/popper.min.js')}}"></script>
+  <script src="{{ secure_asset ('js/bootstrap.min.js')}}"></script>
+  <script src="{{ secure_asset ('js/owl.carousel.min.js')}}"></script>
+  <script src="{{ secure_asset ('js/jquery.stellar.min.js')}}"></script>
+  <script src="{{ secure_asset ('js/jquery.countdown.min.js')}}"></script>
+  <script src="{{ secure_asset ('js/bootstrap-datepicker.min.js')}}"></script>
+  <script src="{{ secure_asset ('js/jquery.easing.1.3.js')}}"></script>
+  <script src="{{ secure_asset ('js/aos.js')}}"></script>
+  <script src="{{ secure_asset ('js/jquery.fancybox.min.js')}}"></script>
+  <script src="{{ secure_asset ('js/jquery.sticky.js')}}"></script>
+  <script src="{{ secure_asset ('js/jquery.mb.YTPlayer.min.js')}}"></script>
 
 
   <script src="js/main.js"></script>
