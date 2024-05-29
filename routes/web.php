@@ -33,7 +33,6 @@ Route::get('/partidos', function () {
 //rutas de login
 Route::get('/login',[UsuarioController::class,'login'])->name('login');
 Route::post('/login',[UsuarioController::class,'postLogin'])->name('login.postlogin');
-
 //ALUMNOS
 Route::get("/usuarios",UsuarioController::class)->name('usuarios');
 //crearalumno
@@ -42,9 +41,11 @@ Route::post('/crearalumno',[UsuarioController::class,'postCrearAlumno'])->name('
 //modificar alumno
 route::get("/alumno/{alumno}/modificar",[UsuarioController::class, "modificarAlumno"])->name('modificar.alumno');
 route::put("/alumno/{alumno}/modificar",[UsuarioController::class, "putModificarAlumno"])->name('put.modificar.alumno');
+//
+Route::put('/alumnos/{id}/notas', [UsuarioController::class, 'updateNotas'])->name('update.notas');
+
 //eliminar alumno
 route::delete("/alumno/{alumno}/eliminar",[UsuarioController::class, "deleteAlumno"])->name('delete.alumno');
-
 //DOCENTES
 Route::get("/docentes",DocenteController::class)->name('docentes');
 //creardocente
@@ -55,7 +56,6 @@ Route::get('/docente/{docente}/modificar',[DocenteController::class,'modificarDo
 Route::put('/docente/{docente}/modificar',[DocenteController::class,'putModificarDocente'])->name('put.modificar.docente');
 //eliminar docente
 Route::delete('/docente/{docente}/eliminar',[DocenteController::class,'deleteDocente'])->name('delete.docente');
-
 //SEDES
 Route::get('/sedes',SedeController::class)->name('sedes');
 //crearsede
@@ -66,14 +66,10 @@ Route::get('/sede/{sede}/modificar',[SedeController::class,'modificarSede'])->na
 Route::put('/sede/{sede}/modificar',[SedeController::class,'putModificarSede'])->name('put.modificar.sede');
 //eliminar sede
 Route::delete('/sede/{sede}/eliminar',[SedeController::class,'deleteSede'])->name('delete.sede');
-
-
-
-
 //materiales
 Route::resource('material', MaterialController::class);
-
 //clases
 Route::resource('clase', ClasesController::class);
-//
+//campos
 Route::resource('campo',CampoController::class);
+

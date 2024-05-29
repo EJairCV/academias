@@ -38,11 +38,52 @@
                             <button type="submit" class="btn btn-danger">Eliminar</button>
                         </form>
                     </div>
+                    <div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#notasModal{{ $item->id }}">
+                            Notas
+                        </button>
+                    </div>
                 </div>
 
 
 
 
+            </div>
+
+            <div class="modal fade" id="notasModal{{ $item->id }}" tabindex="-1"
+                aria-labelledby="notasModalLabel{{ $item->id }}" aria-hidden="true">
+                <div class="modal-dialog ">
+                    <div class="modal-content bg-dark">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="notasModalLabel{{ $item->id }}">Modificar Notas de
+                                {{ $item->name }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('update.notas', $item->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <div class="mb-3">
+                                    <label for="velocidad" class="form-label">Velocidad</label>
+                                    <input type="number" class="form-control" id="velocidad" name="velocidad"
+                                        value="{{ $item->velocidad }}">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fuerza" class="form-label">Fuerza</label>
+                                    <input type="number" class="form-control" id="fuerza" name="fuerza"
+                                        value="{{ $item->fuerza }}">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="resistencia" class="form-label">Resistencia</label>
+                                    <input type="number" class="form-control" id="resistencia" name="resistencia"
+                                        value="{{ $item->resistencia }}">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         @endforeach
     </div>

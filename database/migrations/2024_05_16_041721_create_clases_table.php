@@ -14,21 +14,16 @@ return new class extends Migration
         Schema::create('clases', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            
-
             $table->unsignedBigInteger('id_docente')->nullable();
-            $table->unsignedBigInteger('id_campo')->nullable();
-            
+            $table->unsignedBigInteger('id_campo')->nullable();       
             $table->foreign('id_docente')
                     ->references('id')
                     ->on('docente')
                     ->onDelete('set null');
-
              $table->foreign('id_campo')
                      ->references('id')
                      ->on('campos')
                     ->onDelete('set null');
-
             $table->timestamps();
         });
     }

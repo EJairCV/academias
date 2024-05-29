@@ -18,7 +18,6 @@ class ClasesFactory extends Factory
     {
         return [
             'name'=>$this->faker->sentence(),
-            
             'id_docente'=>$this->faker->numberBetween(1, 18),
             'id_campo'=>$this->faker->numberBetween(1, 18)
         ];

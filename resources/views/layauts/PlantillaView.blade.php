@@ -11,23 +11,23 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ secure_asset ('fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{ asset ('fonts/icomoon/style.css')}}">
   
-    <link rel="stylesheet" href="{{ secure_asset ('css/bootstrap/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{ secure_asset ('css/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{ secure_asset ('css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{ secure_asset ('css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{ secure_asset ('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/bootstrap/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/owl.theme.default.min.css')}}">
   
-    <link rel="stylesheet" href="{{ secure_asset ('css/jquery.fancybox.min.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/jquery.fancybox.min.css')}}">
   
-    <link rel="stylesheet" href="{{ secure_asset ('css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/bootstrap-datepicker.css')}}">
   
-    <link rel="stylesheet" href="{{ secure_asset ('fonts/flaticon/font/flaticon.css')}}">
+    <link rel="stylesheet" href="{{ asset ('fonts/flaticon/font/flaticon.css')}}">
   
-    <link rel="stylesheet" href="{{ secure_asset ('css/aos.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/aos.css')}}">
   
-    <link rel="stylesheet" href="{{ secure_asset ('css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset ('css/style.css')}}">
     
 </head>
 <body>
@@ -49,8 +49,7 @@
             
           </div>
         </div>
-      </div>
-        
+      </div> 
       </nav> 
 
       

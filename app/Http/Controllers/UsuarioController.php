@@ -120,6 +120,23 @@ class UsuarioController extends Controller
         return redirect()->route('usuarios');
     }
 
+    public function updateNotas(Request $request, $id)
+{
+    $request->validate([
+        'velocidad' => 'required|numeric',
+        'fuerza' => 'required|numeric',
+        'resistencia' => 'required|numeric',
+    ]);
+
+    $alumno = Usuario::findOrFail($id);
+    $alumno->velocidad = $request->velocidad;
+    $alumno->fuerza = $request->fuerza;
+    $alumno->resistencia = $request->resistencia;
+    $alumno->save();
+
+    return redirect()->route('usuarios')->with('success', 'Notas actualizadas correctamente');
+}
+
 
 
     

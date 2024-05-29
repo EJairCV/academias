@@ -19,6 +19,9 @@ class UsuarioFactory extends Factory
         return [
             'name'=>$this->faker->sentence(),
             'dni'=>$this->faker->randomNumber(7),
+            'velocidad'=>$this->faker->randomNumber(2),
+            'fuerza'=>$this->faker->randomNumber(2),
+            'resistencia'=>$this->faker->randomNumber(2),
             'email'=>$this->faker->email(),
             'edad'=>$this->faker->randomNumber(2),
             'telefono'=>$this->faker->numerify('#########'),
