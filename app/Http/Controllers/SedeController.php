@@ -12,11 +12,19 @@ class SedeController extends Controller
         $sedes = sede::orderBy('id', 'desc')->paginate();
         return view('sede.SedesView',compact('sedes'));
     }
-    
+    //buscar
+    public function buscarSede(Request $request){
+        $nombre = $request->name;
+        $sedes = sede::where('name', 'like', '%' . $nombre . '%')->get();
+        return view('sede.SedesView',compact('sedes'));
+    }
     //crear sedes
     public function crearSede(){
         return view('sede.CrearSedeView');
     }
+
+    
+
     public function postCrearSede(Request $request){
         $request->validate([           
             'name' => 'required',

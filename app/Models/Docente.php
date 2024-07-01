@@ -16,4 +16,8 @@ class Docente extends Model
     public function clases(){
         return $this->hasMany('App\Models\Clases');
     }
+    public function cuenta()
+    {
+        return $this->morphOne(Cuenta::class, 'cuentable');
+    }
 }

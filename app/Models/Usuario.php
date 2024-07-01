@@ -13,4 +13,14 @@ class Usuario extends Model
     // protected $fillable = ['name', 'password', 'email','edad','dni','telefono','direccion'];
 
     protected $guarded = [];
+
+
+    public function equipos(){
+        return $this->belongsToMany(Equipo::class, 'equipo_usuario','usuario_id','equipo_id');
+    }
+    public function cuenta()
+    {
+        return $this->morphOne(Cuenta::class, 'cuentable');
+    }
+
 }

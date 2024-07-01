@@ -88,23 +88,15 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-7">
-            <form action="#">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" class="form-control" id="" cols="30" rows="10" placeholder="Write something..."></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-primary py-3 px-5" value="Send Message">
-              </div>
-            </form>  
+            <iframe
+        width="600"     
+        height="450"    
+        frameborder="0" 
+        style="border:0" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387337.0018582271!2d-74.25986458688728!3d40.69714937781888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a2bc32a54c9%3A0x4e60cf1b3e5b218f!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2suk!4v1621419871399!5m2!1sen!2suk"
+        allowfullscreen="" 
+        loading="lazy"> 
+    </iframe>
           </div>
           <div class="col-lg-4 ml-auto">
             

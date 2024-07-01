@@ -6,6 +6,32 @@
 @section('content')
     <h1 class="my-3">Campos</h1>
     <a href="{{route("campo.create")}}"><button type="button" class="btn mb-2 btn-outline-secondary">Registrar Campo</button></a>
+
+    <div>
+        <form id="form" action="{{route('post.buscar.campo')}}" method="post">
+            @csrf
+            <div class="form-group row m-3">
+                <label for="name" class="col-sm-2 col-form-label">Buscar nombre</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name" id="name" value="">
+                </div>
+                
+            </div>
+            
+        </form>
+        <div>
+            <button form="form" class="btn btn-outline-primary" type="submit">Buscar</button>
+            <a href="{{route('campo.index')}}">
+                <button class="btn btn-outline-primary" >limpiar</button>
+            </a>
+            <a href="{{ route('campo.create') }}">
+                <button type="button" class=" btn btn-outline-secondary">
+                    Registrar campo
+                </button>
+            </a>
+        </div>
+    </div>
+
     <div class="d-flex flex-wrap justify-content-evenly ">
         @foreach ($campos as $item)
         

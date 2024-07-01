@@ -7,7 +7,7 @@
     
 <div class="container">
   <form id="form" action="{{route("post.crear.alumno")}}" method="POST" >
-    @csrf
+    @csrf 
     <h1>crear nuevo alumno</h1>
     <div class="form-group row m-3">
       <label for="email" class="col-sm-2 col-form-label">Correo</label>

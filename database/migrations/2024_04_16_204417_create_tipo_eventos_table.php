@@ -11,14 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('eventos', function (Blueprint $table) {
+        Schema::create('tipo_eventos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            
-            $table->text('direccion');
-            $table->date('fecha');
-            $table->unsignedBigInteger('tipo_id')->nullable(); // Clave foránea
-            $table->foreign('tipo_id')->references('id')->on('tipo_eventos')->onDelete('set null');
             $table->timestamps();
         });
     }
@@ -28,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('evento');
+        Schema::dropIfExists('tipo_eventos');
     }
 };

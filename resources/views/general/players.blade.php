@@ -77,7 +77,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-5 mx-auto text-center">
-            <h1 class="text-white">Players</h1>
+            <h1 class="text-white">Jugadores</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, molestias repudiandae pariatur.</p>
           </div>
         </div>
@@ -103,49 +103,8 @@
 
 
         <div class="owl-4-slider owl-carousel">
-          <div class="item">
-            <div class="video-media">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <span class="meta">#10 / Forward</span>
-                  <h3 class="m-0">Phillip Hobbs</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <span class="meta">#7 / Forward</span>
-                  <h3 class="m-0">Garry Norris</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <span class="meta">#4 / Forward</span>
-                  <h3 class="m-0">Romolu Harper</h3>
-                </div>
-              </a>
-            </div>
-          </div>
 
+          @foreach($jugadores as $item)
           <div class="item">
             <div class="video-media">
               <img src="images/img_1.jpg" alt="Image" class="img-fluid">
@@ -154,40 +113,18 @@
                   <span class="icon-play"></span>
                 </span>
                 <div class="caption">
-                  <span class="meta">#4 / Forward</span>
-                  <h3 class="m-0">Phillip Hobbs</h3>
+                  <span class="meta">Edad:{{$item->edad}}</span>
+                  <h3 class="m-0">{{$item->name}}</h3>
                 </div>
               </a>
             </div>
           </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <span class="meta">#1 / GoalKeeper</span>
-                  <h3 class="m-0">Garry Norris</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <span class="meta">#8 / Forward</span>
-                  <h3 class="m-0">Romolu Harper</h3>
-                </div>
-              </a>
-            </div>
-          </div>
+          @endforeach
+          
+
+          
+          
+          
         </div>
 
       </div>
@@ -195,83 +132,16 @@
 
 
     
-    <div class="container site-section">
-      <div class="row">
-        <div class="col-6 title-section">
-          <h2 class="heading">Our Blog</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="custom-media d-flex">
-            <div class="img mr-4">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-            </div>
-            <div class="text">
-              <span class="meta">May 20, 2020</span>
-              <h3 class="mb-4"><a href="#">Romolu to stay at Real Nadrid?</a></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt saepe tempora dolorem.</p>
-              <p><a href="#">Read more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="custom-media d-flex">
-            <div class="img mr-4">
-              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-            </div>
-            <div class="text">
-              <span class="meta">May 20, 2020</span>
-              <h3 class="mb-4"><a href="#">Romolu to stay at Real Nadrid?</a></h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus deserunt saepe tempora dolorem.</p>
-              <p><a href="#">Read more</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
 
 
     <footer class="footer-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-3">
-            <div class="widget mb-3">
-              <h3>News</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">All</a></li>
-                <li><a href="#">Club News</a></li>
-                <li><a href="#">Media Center</a></li>
-                <li><a href="#">Video</a></li>
-                <li><a href="#">RSS</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="widget mb-3">
-              <h3>Tickets</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">Online Ticket</a></li>
-                <li><a href="#">Payment and Prices</a></li>
-                <li><a href="#">Contact &amp; Booking</a></li>
-                <li><a href="#">Tickets</a></li>
-                <li><a href="#">Coupon</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="widget mb-3">
-              <h3>Matches</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">Standings</a></li>
-                <li><a href="#">World Cup</a></li>
-                <li><a href="#">La Lega</a></li>
-                <li><a href="#">Hyper Cup</a></li>
-                <li><a href="#">World League</a></li>
-              </ul>
-            </div>
-          </div>
+          
+          
+          
 
           <div class="col-lg-3">
             <div class="widget mb-3">

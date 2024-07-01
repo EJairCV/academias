@@ -20,9 +20,9 @@ return new class extends Migration
             $table->integer("telefono");
             $table->string("password");
             $table->text("direccion");
-            $table->integer("velocidad");
-            $table->integer("fuerza");
-            $table->integer("resistencia");
+            $table->integer("velocidad")->nullable();
+            $table->integer("fuerza")->nullable();
+            $table->integer("resistencia")->nullable();
             $table->timestamps();
         });
     }

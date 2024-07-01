@@ -66,8 +66,8 @@
         <label class="col-sm-2 col-form-label" for="cargo">Rol</label>
         <div class="col-sm-10">
             <select class="form-control" name="cargo" id="cargo">
-                <option value="profesor">Profesor</option>
-                <option value="administrador">Administrador</option>
+                <option value="Docente">Profesor</option>
+                <option value="Administrador">Administrador</option>
               </select>
         </div>
         

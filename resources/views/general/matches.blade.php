@@ -92,33 +92,7 @@
       <div class="row">
         <div class="col-lg-12">
           
-          <div class="d-flex team-vs">
-            <span class="score">4-1</span>
-            <div class="team-1 w-50">
-              <div class="team-details w-100 text-center">
-                <img src="images/logo_1.png" alt="Image" class="img-fluid">
-                <h3>LA LEGA <span>(win)</span></h3>
-                <ul class="list-unstyled">
-                  <li>Anja Landry (7)</li>
-                  <li>Eadie Salinas (12)</li>
-                  <li>Ashton Allen (10)</li>
-                  <li>Baxter Metcalfe (5)</li>
-                </ul>
-              </div>
-            </div>
-            <div class="team-2 w-50">
-              <div class="team-details w-100 text-center">
-                <img src="images/logo_2.png" alt="Image" class="img-fluid">
-                <h3>JUVENDU <span>(loss)</span></h3>
-                <ul class="list-unstyled">
-                  <li>Macauly Green (3)</li>
-                  <li>Arham Stark (8)</li>
-                  <li>Stephan Murillo (9)</li>
-                  <li>Ned Ritter (5)</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -132,35 +106,19 @@
           <div class="col-lg-12">
             <div class="widget-next-match">
               <div class="widget-title">
-                <h3>Next Match</h3>
+                <h3>Siguiente evento</h3>
               </div>
-              <div class="widget-body mb-3">
-                <div class="widget-vs">
-                  <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
-                    <div class="team-1 text-center">
-                      <img src="images/logo_1.png" alt="Image">
-                      <h3>Football League</h3>
-                    </div>
-                    <div>
-                      <span class="vs"><span>VS</span></span>
-                    </div>
-                    <div class="team-2 text-center">
-                      <img src="images/logo_2.png" alt="Image">
-                      <h3>Soccer</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              
 
               <div class="text-center widget-vs-contents mb-4">
-                <h4>World Cup League</h4>
+                <h4 class="mt-5">{{$ultimoEvento->name}}</h4>
                 <p class="mb-5">
-                  <span class="d-block">December 20th, 2020</span>
-                  <span class="d-block">9:30 AM GMT+0</span>
-                  <strong class="text-primary">New Euro Arena</strong>
+                  <span class="d-block">{{$ultimoEvento->fecha}}</span>
+                  <span class="d-block">{{$ultimoEvento->direccion}}</span>
+                  <strong class="text-primary">{{$ultimoEvento->tipo->name}}</strong>
                 </p>
 
-                <div id="date-countdown2" class="pb-1"></div>
+                
               </div>
             </div>
           </div>
@@ -168,137 +126,31 @@
 
         <div class="row">
           <div class="col-12 title-section">
-            <h2 class="heading">Upcoming Match</h2>
+            <h2 class="heading">Siguientes eventos</h2>
           </div>
+          @foreach ($ultimosEventos as $item)
           <div class="col-lg-6 mb-4">
             <div class="bg-light p-4 rounded">
-              <div class="widget-body">
-                  <div class="widget-vs">
-                    <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
-                      <div class="team-1 text-center">
-                        <img src="images/logo_1.png" alt="Image">
-                        <h3>Football League</h3>
-                      </div>
-                      <div>
-                        <span class="vs"><span>VS</span></span>
-                      </div>
-                      <div class="team-2 text-center">
-                        <img src="images/logo_2.png" alt="Image">
-                        <h3>Soccer</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              
 
                 <div class="text-center widget-vs-contents mb-4">
-                  <h4>World Cup League</h4>
+                  <h4>{{$item->name}}</h4>
                   <p class="mb-5">
-                    <span class="d-block">December 20th, 2020</span>
-                    <span class="d-block">9:30 AM GMT+0</span>
-                    <strong class="text-primary">New Euro Arena</strong>
+                    <span class="d-block">Fecha: {{$item->fecha}}</span>
+                    <span class="d-block">Direccion: {{$item->direccion}}</span>
+                    <strong class="text-primary">{{$item->tipo->name}}</strong>
                   </p>
 
                 </div>
               
             </div>
           </div>
-          <div class="col-lg-6 mb-4">
-            <div class="bg-light p-4 rounded">
-              <div class="widget-body">
-                  <div class="widget-vs">
-                    <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
-                      <div class="team-1 text-center">
-                        <img src="images/logo_3.png" alt="Image">
-                        <h3>Football League</h3>
-                      </div>
-                      <div>
-                        <span class="vs"><span>VS</span></span>
-                      </div>
-                      <div class="team-2 text-center">
-                        <img src="images/logo_4.png" alt="Image">
-                        <h3>Soccer</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          @endforeach
+          
+          
 
-                <div class="text-center widget-vs-contents mb-4">
-                  <h4>World Cup League</h4>
-                  <p class="mb-5">
-                    <span class="d-block">December 20th, 2020</span>
-                    <span class="d-block">9:30 AM GMT+0</span>
-                    <strong class="text-primary">New Euro Arena</strong>
-                  </p>
-
-                </div>
-              
-            </div>
-          </div>
-
-          <div class="col-lg-6 mb-4">
-            <div class="bg-light p-4 rounded">
-              <div class="widget-body">
-                  <div class="widget-vs">
-                    <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
-                      <div class="team-1 text-center">
-                        <img src="images/logo_1.png" alt="Image">
-                        <h3>Football League</h3>
-                      </div>
-                      <div>
-                        <span class="vs"><span>VS</span></span>
-                      </div>
-                      <div class="team-2 text-center">
-                        <img src="images/logo_2.png" alt="Image">
-                        <h3>Soccer</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="text-center widget-vs-contents mb-4">
-                  <h4>World Cup League</h4>
-                  <p class="mb-5">
-                    <span class="d-block">December 20th, 2020</span>
-                    <span class="d-block">9:30 AM GMT+0</span>
-                    <strong class="text-primary">New Euro Arena</strong>
-                  </p>
-
-                </div>
-              
-            </div>
-          </div>
-          <div class="col-lg-6 mb-4">
-            <div class="bg-light p-4 rounded">
-              <div class="widget-body">
-                  <div class="widget-vs">
-                    <div class="d-flex align-items-center justify-content-around justify-content-between w-100">
-                      <div class="team-1 text-center">
-                        <img src="images/logo_3.png" alt="Image">
-                        <h3>Football League</h3>
-                      </div>
-                      <div>
-                        <span class="vs"><span>VS</span></span>
-                      </div>
-                      <div class="team-2 text-center">
-                        <img src="images/logo_4.png" alt="Image">
-                        <h3>Soccer</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="text-center widget-vs-contents mb-4">
-                  <h4>World Cup League</h4>
-                  <p class="mb-5">
-                    <span class="d-block">December 20th, 2020</span>
-                    <span class="d-block">9:30 AM GMT+0</span>
-                    <strong class="text-primary">New Euro Arena</strong>
-                  </p>
-
-                </div>
-              
-            </div>
-          </div>
+          
+          
           
         </div>
       </div>
@@ -321,6 +173,8 @@
 
 
         <div class="owl-4-slider owl-carousel">
+          
+          @foreach ($sedes as $item)
           <div class="item">
             <div class="video-media">
               <img src="images/img_1.jpg" alt="Image" class="img-fluid">
@@ -329,77 +183,18 @@
                   <span class="icon-play"></span>
                 </span>
                 <div class="caption">
-                  <h3 class="m-0">Dogba set for Juvendu return?</h3>
+                  <h3 class="m-0">{{$item->name}}</h3>
+                  <strong class="text-primary">{{$item->telefono}}</strong>
                 </div>
               </a>
             </div>
           </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Kai Nets Double To Secure Comfortable Away Win</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Romolu to stay at Real Nadrid?</h3>
-                </div>
-              </a>
-            </div>
-          </div>
+          @endforeach
+          
 
-          <div class="item">
-            <div class="video-media">
-              <img src="images/img_1.jpg" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Dogba set for Juvendu return?</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="images/img_2.jpg" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Kai Nets Double To Secure Comfortable Away Win</h3>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="video-media">
-              <img src="images/img_3.jpg" alt="Image" class="img-fluid">
-              <a href="https://vimeo.com/139714818" class="d-flex play-button align-items-center" data-fancybox>
-                <span class="icon mr-3">
-                  <span class="icon-play"></span>
-                </span>
-                <div class="caption">
-                  <h3 class="m-0">Romolu to stay at Real Nadrid?</h3>
-                </div>
-              </a>
-            </div>
-          </div>
+          
+          
+          
 
         </div>
 
@@ -413,42 +208,7 @@
     <footer class="footer-section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-3">
-            <div class="widget mb-3">
-              <h3>News</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">All</a></li>
-                <li><a href="#">Club News</a></li>
-                <li><a href="#">Media Center</a></li>
-                <li><a href="#">Video</a></li>
-                <li><a href="#">RSS</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="widget mb-3">
-              <h3>Tickets</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">Online Ticket</a></li>
-                <li><a href="#">Payment and Prices</a></li>
-                <li><a href="#">Contact &amp; Booking</a></li>
-                <li><a href="#">Tickets</a></li>
-                <li><a href="#">Coupon</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-3">
-            <div class="widget mb-3">
-              <h3>Matches</h3>
-              <ul class="list-unstyled links">
-                <li><a href="#">Standings</a></li>
-                <li><a href="#">World Cup</a></li>
-                <li><a href="#">La Lega</a></li>
-                <li><a href="#">Hyper Cup</a></li>
-                <li><a href="#">World League</a></li>
-              </ul>
-            </div>
-          </div>
+          
 
           <div class="col-lg-3">
             <div class="widget mb-3">

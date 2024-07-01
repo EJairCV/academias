@@ -38,8 +38,13 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'cuentas',
         ],
+        'api' => [
+            'driver' => 'token', 
+            'provider' => 'cuentas',
+            'hash' => false,
+    ],
     ],
 
     /*
@@ -60,9 +65,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'cuentas' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => App\Models\Cuenta::class,
         ],
 
         // 'users' => [

@@ -11,23 +11,23 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset ('fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('fonts/icomoon/style.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('css/bootstrap/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{ asset ('css/jquery-ui.css')}}">
-    <link rel="stylesheet" href="{{ asset ('css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{ asset ('css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{ asset ('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/bootstrap/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/owl.theme.default.min.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('css/jquery.fancybox.min.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/jquery.fancybox.min.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/bootstrap-datepicker.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('fonts/flaticon/font/flaticon.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('fonts/flaticon/font/flaticon.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('css/aos.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/aos.css')}}">
   
-    <link rel="stylesheet" href="{{ asset ('css/style.css')}}">
+    <link rel="stylesheet" href="{{ secure_asset ('css/style.css')}}">
     
 </head>
 <body>
@@ -38,15 +38,27 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class=" text-light nav-item nav-link active" href="{{route('docentes')}}">Docentes <span class="sr-only"></span></a>
-            <a class=" text-light nav-item nav-link" href="{{route('sedes')}}">Sedes</a>
+          <div class="navbar-nav justify-content-between">
+            @if (Auth::user()->rol!=='Alumno')
+            
             <a class=" text-light nav-item nav-link" href="{{route('usuarios')}}">Alumnos</a>
+            <a class=" text-light nav-item nav-link active" href="{{route('docentes')}}">Docentes <span class="sr-only"></span></a>
+            
+            
             <a class=" text-light nav-item nav-link" href="{{route('material.index')}}">Materiales</a>
             <a class=" text-light nav-item nav-link" href="{{route('campo.index')}}">Campos</a>
             <a class=" text-light nav-item nav-link" href="{{route('clase.index')}}">Clases</a>
-            <a class=" text-light nav-item nav-link" href="#">Eventos</a>
+            <a class=" text-light nav-item nav-link" href="{{route('evento.index')}}">Eventos</a>
+
+            @if (Auth::user()->rol!=='Docente'&& Auth::user()->rol !== 'Alumno')
+            <a class=" text-light nav-item nav-link" href="{{route('tevento.index')}}">Tipos de eventos</a>
+            <a class=" text-light nav-item nav-link" href="{{route('sedes')}}">Sedes</a>
+            @endif
             
+            <a class=" text-light nav-item nav-link" href="{{route('equipo.index')}}">Equipos</a>
+            @endif
+            
+            <a class=" text-light nav-item nav-link" href="{{route('logout')}}">Desconectar</a>
           </div>
         </div>
       </div> 

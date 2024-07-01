@@ -13,6 +13,13 @@ class ClasesController extends Controller
         $clases = Clases::orderBy('id', 'desc')->paginate();
          return view('clases.ClasesView', compact('clases'));    
     }
+
+    public function buscarCLase(Request $request){
+        $nombre = $request->name;
+        $clases = Clases::where('name', 'like', '%' . $nombre . '%')->get();
+        return view('clases.ClasesView', compact('clases'));
+         
+    }
     public function create(){
         $docentes = Docente::all();
         $campos = Campo::all();

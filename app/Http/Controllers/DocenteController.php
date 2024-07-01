@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Docente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class DocenteController extends Controller
 {
@@ -18,6 +19,15 @@ class DocenteController extends Controller
     {
         return view('docente.CrearDocenteView');
     }
+
+    //buscar docente 
+
+    public function buscarDocente(Request $request){
+        $nombre = $request->name;
+        $docente = Docente::where('name', 'like', '%' . $nombre . '%')->get();
+        return view('docente.DocenteView', compact('docente'));
+    }
+
     public function postCrearDocente(Request $request)
     {
         $request->validate([
@@ -33,7 +43,11 @@ class DocenteController extends Controller
         ]);
 
         $docente = Docente::create($request->all());
-
+        $cuentaDocente=  $docente->cuenta()->create([
+            'email'=> $request->email,
+            'password' => Hash::make($request->password),
+            'rol'=> $request->cargo,
+        ]);
         return redirect()->route('docentes');
     }
 

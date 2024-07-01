@@ -72,9 +72,47 @@
         </div>
 
     </header>
-    <br>
-    <br><br>
-    <div class="container">
+    
+
+
+    <div class="hero overlay" style="background-image: url('images/bg_3.jpg');">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center rounded-2 p-3" style="background-color: rgba(0, 0, 0, 0.5);">
+                <h2>Login</h2>
+                <form action="{{ route('loginauth') }}" method="POST">
+                    @csrf
+                    
+                    <div class="form-group row m-3">
+                        <label for="email" class="col-sm-2 col-form-label">Correo </label>
+                        <div class="col-sm-10">
+                            <input class="form-control" name="email" type="email" value="{{ old('email') }}">
+                        </div>
+                        @error('email')
+                            {{ $message }}
+                        @enderror
+                    </div>
+        
+                    <div class="form-group row m-3">
+                        <label for="password" class="col-sm-2 col-form-label">Contraseña </label>
+                        <div class="col-sm-10">
+                            <input class="form-control" type="password" name="password" id="" value="{{ old('password') }}">
+                        </div>
+                        @error('password')
+                            {{ $message }}
+                        @enderror
+                    </div>
+        
+                    <button class="btn btn-outline-primary m-2" type="submit">Ingresar</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    {{-- <div class="container">
         <h1>Login</h1>
         <form action="{{ route('login.postlogin') }}" method="POST">
             @csrf
@@ -101,7 +139,7 @@
 
             <button class="btn btn-outline-primary m-2" type="submit">Entrar</button>
         </form>
-    </div>
+    </div> --}}
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

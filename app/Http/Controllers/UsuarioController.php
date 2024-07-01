@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -60,23 +62,22 @@ class UsuarioController extends Controller
 
         ]);
 
-        // $alumno = new Usuario();
-        // $alumno->name = $request->name;
-        // $alumno->dni = $request->dni;
-        // $alumno->email = $request->email;
-        // $alumno->telefono = $request->telefono;
-        // $alumno->password = $request->password;
-        // $alumno->edad = $request->edad;
-        // $alumno->direccion = $request->direccion;
-
-        // $alumno->save();
+        
 
         $alumno = Usuario::create($request->all());
-
+        $cuentaAlumno=  $alumno->cuenta()->create([
+            'email'=> $request->email,
+            'password' => Hash::make($request->password),
+            'rol'=> 'Alumno'
+        ]);
         return redirect()->route('usuarios');
     }
 
-
+    public function buscarAlumno(Request $request){
+        $nombre = $request->name;
+        $usuarios = Usuario::where('name', 'like', '%' . $nombre . '%')->get();
+        return view('usuarios.UsuariosView', compact('usuarios'));
+    }
 
     //modificar alumno
     public function modificarAlumno(Usuario $alumno)
@@ -137,8 +138,19 @@ class UsuarioController extends Controller
     return redirect()->route('usuarios')->with('success', 'Notas actualizadas correctamente');
 }
 
+//datos personales de solo el alumno logeado
+public function VistaAlumno(){
 
-
+    $usuario = Auth::user();
+    $datosUsuarios = Usuario::find($usuario->cuentable_id);
+    $equipos = $datosUsuarios->equipos;
+    $eventos = collect();
+    foreach ($equipos as $equipo) {
+        $eventos = $eventos->merge($equipo->evento);
+    }
+    $eventos = $eventos->unique('id');
     
-
+    return view('usuarios.UsuarioInicio', compact('datosUsuarios','equipos','eventos'));
 }
+}
+

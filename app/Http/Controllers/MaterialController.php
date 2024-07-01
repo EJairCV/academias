@@ -12,6 +12,16 @@ class MaterialController extends Controller
         $material = Material::orderBy('id', 'desc')->paginate();
         return view('materiales.MaterialesView', compact('material'));
     }
+
+    //buscar materiales
+
+    public function buscarMaterial(Request $request){
+        $nombre = $request->name;
+        $material = Material::where('name', 'like', '%' . $nombre . '%')->get();
+        return view('materiales.MaterialesView', compact('material'));
+    }
+
+
     //crear materiales
 
     public function create(){

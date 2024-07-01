@@ -10,7 +10,18 @@ class CampoController extends Controller
     public function index(){
         $campos = Campo::orderBy('id', 'desc')->paginate();
         return view('campo.CamposView', compact('campos'));
+
+
     }
+
+    public function buscarCampo(Request $request){
+        $nombre = $request->name;
+        $campos = Campo::where('name', 'like', '%' . $nombre . '%')->get();
+        return view('campo.CamposView', compact('campos'));
+    }
+
+
+
     public function create(){
         return view('campo.CrearCampoView');
 

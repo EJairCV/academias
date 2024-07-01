@@ -17,7 +17,10 @@ class EventoFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name'=>$this->faker->sentence(),
+            'tipo_id'=>$this->faker->randomElement([1, 2]),
+            'direccion'=>$this->faker->paragraph(),
+            'fecha'=>$this->faker->date()
         ];
     }
 }
