@@ -18,9 +18,17 @@ class Usuario extends Model
     public function equipos(){
         return $this->belongsToMany(Equipo::class, 'equipo_usuario','usuario_id','equipo_id');
     }
+    public function clases(){
+        return $this->belongsToMany(Clases::class, 'clases_usuario', 'usuario_id', 'clases_id');
+    }
+
     public function cuenta()
     {
         return $this->morphOne(Cuenta::class, 'cuentable');
+    }
+    public function fotos()
+    {
+        return $this->morphOne (Foto::class, 'imageable');
     }
 
 }

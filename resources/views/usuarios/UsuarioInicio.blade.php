@@ -15,7 +15,7 @@
         <div class="card text-bg-dark m-2 align-self-stretch" style="width: 18rem;">
 
             <img class="card-img-top p-3"
-                src="https://img.freepik.com/vector-premium/icono-perfil-usuario-estilo-plano-ilustracion-vector-avatar-miembro-sobre-fondo-aislado-concepto-negocio-signo-permiso-humano_157943-15752.jpg"
+                src="{{ secure_asset($foto) }}"
                 alt="Card image cap">
             <div class="card-body">
                 <p class="card-text">{{ $datosUsuarios->name }}</p>

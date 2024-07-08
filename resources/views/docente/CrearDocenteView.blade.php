@@ -5,7 +5,7 @@
 
 @section('content')
 <div>
-  <form id="form" action="{{route("post.crear.docente")}}" method="POST" >
+  <form id="form" action="{{route("post.crear.docente")}}" method="POST" enctype="multipart/form-data">
     @csrf
     <h1>crear nuevo docente</h1>
     <div class="form-group row m-3">
@@ -72,6 +72,13 @@
         </div>
         
       </div>
+      <div class="form-group m-3">
+        <label for="image">Seleccionar imagen:</label>
+            <input class="form-control" type="file" name="image" id="image" >
+            @error('image')
+                {{$message}}
+            @enderror
+          </div>
     <div class="form-group m-3">
         <label for="direccion">Dirección</label>
         <textarea class="form-control" id="direccion" name="direccion" rows="3"></textarea>

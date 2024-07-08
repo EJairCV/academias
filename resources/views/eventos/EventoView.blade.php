@@ -43,7 +43,7 @@
                     Nombre: {{$item->name}} <br>
                     Direccion: {{$item->direccion}} <br>
                     Fecha: {{$item->fecha}} <br>
-                    Tipo: {{$item->tipo->name}}
+                    Tipo: {{$item->tipo==null?'' : $item->tipo->name}}
                 </div>
 
                 <div class="d-flex justify-content-evenly my-3">

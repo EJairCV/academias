@@ -37,8 +37,8 @@
                 <img class="card-img-top p-3" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmm3VvZ5XVHPu7Wt3yxAFlEvy-h0B0qRrDMeuE0tkuUQ&s" alt="Card image cap">
                 <div class="card-body">
                     Nombre: {{$item->name}} <br>
-                    Profesor: {{$item->docente->name}} <br>
-                    Lugar: {{$item->campo->name}}
+                    Profesor: {{ $item->docente==null?'':$item->docente->name}} <br>
+                    Lugar: {{ $item->campo==null? '': $item->campo->name}}
                     
                 </div>
 

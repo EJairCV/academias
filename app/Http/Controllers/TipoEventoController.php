@@ -21,7 +21,9 @@ class TipoEventoController extends Controller
     }
 
     public function store(Request $request){
-        $request->validate([           
+        $request->validate([
+            'name' => 'required',
+            
             
         ]);
 
@@ -35,7 +37,9 @@ class TipoEventoController extends Controller
         
     }
     public function update(TipoEvento $tevento, Request $request){
-        $request->validate([           
+        $request->validate([
+            'name' => 'required',
+            
             
         ]);
 

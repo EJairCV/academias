@@ -31,8 +31,12 @@ class EventoController extends Controller
     }
 
     public function store(Request $request){
-        $request->validate([           
+        $request->validate([
             
+            'name' => 'required',
+            
+            'direccion' => 'required',
+            'fecha' => 'required',
         ]);
 
         $evento= Evento::create($request->all());
@@ -52,8 +56,12 @@ class EventoController extends Controller
 
     }
     public function update(Evento $evento, Request $request){
-        $request->validate([           
+        $request->validate([
             
+            'name' => 'required',
+            
+            'direccion' => 'required',
+            'fecha' => 'required',
         ]);
 
         $evento->update($request->all());

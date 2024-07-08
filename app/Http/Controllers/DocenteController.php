@@ -20,6 +20,11 @@ class DocenteController extends Controller
         return view('docente.CrearDocenteView');
     }
 
+    public function crearDocentePrueba()
+    {
+        return view('docente.CrearDocentePruebaView');
+    }
+
     //buscar docente 
 
     public function buscarDocente(Request $request){
@@ -38,16 +43,31 @@ class DocenteController extends Controller
             'telefono' => ['required', 'numeric', 'digits:9'],
             'direccion' => 'required',
             'sueldo' => 'required',
-            'cargo' => 'required'
-
+            'cargo' => 'required',
+            'image' => 'nullable|image|mimes:jpg|max:2048'
         ]);
 
-        $docente = Docente::create($request->all());
+        $docente = Docente::create($request->except(['image']));
         $cuentaDocente=  $docente->cuenta()->create([
             'email'=> $request->email,
             'password' => Hash::make($request->password),
             'rol'=> $request->cargo,
         ]);
+
+        //crear y guardar imagen
+        if ($request->hasFile('image')) {
+            $foto = $request->file('image');
+            $name = time() . '.' . $foto->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $foto->move($destinationPath, $name);
+            
+            //  guardar la URL de la foto en el modelo
+            $nombreImg = "/images/" . $name;
+            //crea su imagen
+            $docente->fotos()->create([
+                'url'=> $nombreImg
+            ]);
+        }
         return redirect()->route('docentes');
     }
 
@@ -68,11 +88,36 @@ class DocenteController extends Controller
             'telefono' => ['required', 'numeric', 'digits:9'],
             'direccion' => 'required',
             'sueldo' => 'required',
-            'cargo' => 'required'
+            'cargo' => 'required',
+            'image' => 'nullable|image|mimes:jpg|max:2048'
 
         ]);
 
-        $docente->update($request->all());
+        if ($request->hasFile('image')) {
+            // Eliminar la foto anterior si existe
+            if ($docente->fotos) {
+                $oldImagePath = public_path($docente->fotos->url);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+                $docente->fotos()->delete();
+            }
+    
+            // Guardar la nueva foto
+            $foto = $request->file('image');
+            $name = time() . '.' . $foto->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $foto->move($destinationPath, $name);
+            
+            $nombreImg = "/images/" . $name;
+    
+            // Crear la nueva entrada de foto
+            $docente->fotos()->create([
+                'url' => $nombreImg,
+            ]);
+        }
+
+        $docente->update($request->except(['image']));
 
         return redirect()->route('docentes');
     }

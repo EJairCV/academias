@@ -1,18 +1,11 @@
-@extends('layauts.PlantillaView')
-
-
-@section("title", 'Modificar docente')
-
-@section('content')
-<div class="container">
-  <form id="form" action="{{route("put.modificar.docente",$docente)}}" method="POST" enctype="multipart/form-data">
+<div>
+  <form id="form" action="{{route("post.crear.docente")}}" method="POST" enctype="multipart/form-data">
     @csrf
-    @method('put')
-    <h1>Modificar docente docente</h1>
+    <h1>crear nuevo docente</h1>
     <div class="form-group row m-3">
       <label for="email" class="col-sm-2 col-form-label">Correo</label>
       <div class="col-sm-10">
-        <input type="text" value="{{$docente->email}}"  class="form-control" name="email" id="email" placeholder="email@example.com">
+        <input type="text"  class="form-control" name="email" id="email" placeholder="email@example.com">
       </div>
       @error('email')
             {{$message}}
@@ -21,7 +14,7 @@
     <div class="form-group row m-3">
       <label for="password" class="col-sm-2 col-form-label">Contraseña</label>
       <div class="col-sm-10">
-        <input type="password" value="{{$docente->password}}" class="form-control" name="password" id="password" placeholder="Password">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
       </div>
       @error('password')
             {{$message}}
@@ -30,7 +23,7 @@
     <div class="form-group row m-3">
         <label for="name" class="col-sm-2 col-form-label">Nombre</label>
         <div class="col-sm-10">
-          <input type="text"  class="form-control" name="name" id="name" value="{{$docente->name}}">
+          <input type="text"  class="form-control" name="name" id="name" value="">
         </div>
         @error('name')
             {{$message}}
@@ -39,7 +32,7 @@
     <div class="form-group row m-3">
         <label for="telefono" class="col-sm-2 col-form-label">Telefono</label>
         <div class="col-sm-10">
-          <input type="number"  class="form-control" name="telefono" id="telefono" value="{{$docente->telefono}}">
+          <input type="number"  class="form-control" name="telefono" id="telefono" value="">
         </div>
         @error('telefono')
             {{$message}}
@@ -48,7 +41,7 @@
     <div class="form-group row m-3">
         <label for="dni" class="col-sm-2 col-form-label">DNI</label>
         <div class="col-sm-10">
-          <input type="number"  class="form-control" name="dni" id="dni" value="{{$docente->dni}}">
+          <input type="number"  class="form-control" name="dni" id="dni" value="">
         </div>
         @error('dni')
             {{$message}}
@@ -57,7 +50,7 @@
     <div class="form-group row m-3">
         <label for="sueldo" class="col-sm-2 col-form-label">Sueldo</label>
         <div class="col-sm-10">
-          <input type="number"  class="form-control" name="sueldo" id="sueldo" value="{{$docente->sueldo}}">
+          <input type="number"  class="form-control" name="sueldo" id="sueldo" value="">
         </div>
         @error('sueldo')
             {{$message}}
@@ -67,8 +60,8 @@
         <label class="col-sm-2 col-form-label" for="cargo">Rol</label>
         <div class="col-sm-10">
             <select class="form-control" name="cargo" id="cargo">
-                <option value="profesor">Profesor</option>
-                <option value="administrador">Administrador</option>
+                <option value="Docente">Profesor</option>
+                <option value="Administrador">Administrador</option>
               </select>
         </div>
         
@@ -79,15 +72,15 @@
             @error('image')
                 {{$message}}
             @enderror
+          </div>
     <div class="form-group m-3">
         <label for="direccion">Dirección</label>
-        <textarea class="form-control" id="direccion" name="direccion" rows="3">{{$docente->direccion}}</textarea>
+        <textarea class="form-control" id="direccion" name="direccion" rows="3"></textarea>
         @error('direccion')
             {{$message}}
         @enderror
     </div>
-      
-      
+       
   </form>
   <div class="justify-content-between d-flex mx-3">
     <div>
@@ -98,5 +91,3 @@
     </div>
   </div>
 </div>
-    
-@endsection

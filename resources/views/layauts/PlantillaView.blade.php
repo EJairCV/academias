@@ -49,7 +49,7 @@
             <a class=" text-light nav-item nav-link" href="{{route('campo.index')}}">Campos</a>
             <a class=" text-light nav-item nav-link" href="{{route('clase.index')}}">Clases</a>
             <a class=" text-light nav-item nav-link" href="{{route('evento.index')}}">Eventos</a>
-
+            
             @if (Auth::user()->rol!=='Docente'&& Auth::user()->rol !== 'Alumno')
             <a class=" text-light nav-item nav-link" href="{{route('tevento.index')}}">Tipos de eventos</a>
             <a class=" text-light nav-item nav-link" href="{{route('sedes')}}">Sedes</a>
@@ -61,12 +61,35 @@
             <a class=" text-light nav-item nav-link" href="{{route('logout')}}">Desconectar</a>
           </div>
         </div>
-      </div> 
+      </div>
+      
+        <div class="d-flex  align-items-center mr-5" >
+
+          <img style="width: 70px;" class="img-fluid rounded-circle p-3"
+              src="{{secure_asset(
+              //verifica si la cuenta enlazada a un usuario o docente tiene una foto
+              Auth::user()->cuentable->fotos==null?
+              Auth::user()->rol=='Alumno'?
+              '/images/img_2.jpg'
+              :"/images/person_4.jpg"
+              :Auth::user()->cuentable->fotos->url)}}">
+          
+            <spam class="text-light">{{ 
+              //ambos usuarios en las tablas docentes y usuarios (la de los alumnos) tienen el campo name 
+               Auth::user()->cuentable->name;
+            }}
+            
+          </spam>
+          
+      </div>
+        
+      
+      
       </nav> 
 
       
 
-      <div class="container">
+      <div class="container mt-4">
         @yield('content')
       </div>
    

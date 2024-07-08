@@ -20,4 +20,8 @@ class Docente extends Model
     {
         return $this->morphOne(Cuenta::class, 'cuentable');
     }
+    public function fotos()
+    {
+        return $this->morphOne(Foto::class, 'imageable');
+    }
 }

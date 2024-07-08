@@ -20,7 +20,10 @@ Route::post('loginauth', [AuthController::class, 'login'])->name('loginauth');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
+//BORRAR DESPUES 
 
+Route::get('/creardocenteprueba',[DocenteController::class,'crearDocentePrueba'])->name('crear.docente.prueba');
+Route::post('/creardocente',[DocenteController::class,'postCrearDocente'])->name('post.crear.docente');
 
 
 
@@ -69,7 +72,9 @@ Route::post('/buscardocente',[DocenteController::class,'buscarDocente'])->name('
 
 //creardocente
 Route::get('/creardocente',[DocenteController::class,'crearDocente'])->name('crear.docente');
-Route::post('/creardocente',[DocenteController::class,'postCrearDocente'])->name('post.crear.docente');
+// Route::post('/creardocente',[DocenteController::class,'postCrearDocente'])->name('post.crear.docente');
+
+
 //modificar docente
 Route::get('/docente/{docente}/modificar',[DocenteController::class,'modificarDocente'])->name('modificar.docente');
 Route::put('/docente/{docente}/modificar',[DocenteController::class,'putModificarDocente'])->name('put.modificar.docente');
@@ -96,6 +101,10 @@ Route::post('/buscarmaterial',[MaterialController::class,'buscarMaterial'])->nam
 //clases
 Route::resource('clase', ClasesController::class);
 Route::post('/buscarclase',[ClasesController::class,'buscarclase'])->name('post.buscar.clase');
+Route::post('/asignarclase/{clase}/{usuario}',[ClasesController::class,'asignarclase'])->name('post.asignar.clase');
+Route::post('/eliminardeclase/{clase}/{usuario}',[ClasesController::class,'eliminardeclase'])->name('post.eliminar.de.clase');
+
+
 
 //campos
 Route::resource('campo',CampoController::class);

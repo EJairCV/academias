@@ -22,7 +22,7 @@ class Cuenta extends Model implements AuthenticatableContract
     {
         return $this->morphTo();
     }
-
+    
     public function hasRole($role)
     {
         return $this->rol === $role;

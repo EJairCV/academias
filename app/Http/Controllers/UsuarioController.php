@@ -58,18 +58,36 @@ class UsuarioController extends Controller
             'edad' => ['required', 'numeric'],
             'dni' => ['required', 'numeric', 'digits:8'],
             'telefono' => ['required', 'numeric', 'digits:9'],
-            'direccion' => 'required'
+            'direccion' => 'required',
+            'image' => 'nullable|image|mimes:jpg|max:2048'
 
         ]);
 
         
 
-        $alumno = Usuario::create($request->all());
+        $alumno = Usuario::create($request->except(['image']));
+        //crea la cuenta
         $cuentaAlumno=  $alumno->cuenta()->create([
             'email'=> $request->email,
             'password' => Hash::make($request->password),
             'rol'=> 'Alumno'
         ]);
+        
+        
+        
+        if ($request->hasFile('image')) {
+            $foto = $request->file('image');
+            $name = time() . '.' . $foto->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $foto->move($destinationPath, $name);
+            
+            //  guardar la URL de la foto en el modelo
+            $nombreImg = "/images/" . $name;
+            //crea su imagen
+            $alumno->fotos()->create([
+                'url'=> $nombreImg
+            ]);
+        }
         return redirect()->route('usuarios');
     }
 
@@ -95,21 +113,38 @@ class UsuarioController extends Controller
             'edad' => ['required', 'numeric'],
             'dni' => ['required', 'numeric', 'digits:8'],
             'telefono' => ['required', 'numeric', 'digits:9'],
-            'direccion' => 'required'
-
+            'direccion' => 'required',
+            'image' => 'nullable|image|mimes:jpg|max:2048'
         ]);
+        
+        // Procesar la foto si existe en la solicitud
+        
+        if ($request->hasFile('image')) {
+            // Eliminar la foto anterior si existe
+            if ($alumno->fotos) {
+                $oldImagePath = public_path($alumno->fotos->url);
+                if (file_exists($oldImagePath)) {
+                    unlink($oldImagePath);
+                }
+                $alumno->fotos()->delete();
+            }
+    
+            // Guardar la nueva foto
+            $foto = $request->file('image');
+            $name = time() . '.' . $foto->getClientOriginalExtension();
+            $destinationPath = public_path('/images');
+            $foto->move($destinationPath, $name);
+            
+            $nombreImg = "/images/" . $name;
+    
+            // Crear la nueva entrada de foto
+            $alumno->fotos()->create([
+                'url' => $nombreImg,
+            ]);
+        }
 
-        // $alumno->name = $request->name;
-        // $alumno->dni = $request->dni;
-        // $alumno->email = $request->email;
-        // $alumno->telefono = $request->telefono;
-        // $alumno->password = $request->password;
-        // $alumno->edad = $request->edad;
-        // $alumno->direccion = $request->direccion;
 
-        // $alumno->save();
-
-        $alumno->update($request->all());
+        $alumno->update($request->except(['image']));
 
         return redirect()->route('usuarios');
     }
@@ -149,8 +184,14 @@ public function VistaAlumno(){
         $eventos = $eventos->merge($equipo->evento);
     }
     $eventos = $eventos->unique('id');
+      
+    if($datosUsuarios->fotos==null){
+        $foto='/images/img_2.jpg';
+    }else{
+        $foto=$datosUsuarios->fotos->url;
+    };
     
-    return view('usuarios.UsuarioInicio', compact('datosUsuarios','equipos','eventos'));
+    return view('usuarios.UsuarioInicio', compact('datosUsuarios','equipos','eventos', 'foto'));
 }
 }
 

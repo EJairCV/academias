@@ -8,7 +8,7 @@
     
 
     <div>
-        <form id="form" action="{{route('post.buscar.alumno')}}" method="post">
+        <form id="form" action="{{route('post.buscar.docente')}}" method="post" >
             @csrf
             <div class="form-group row m-3">
                 <label for="name" class="col-sm-2 col-form-label">Buscar nombre</label>
@@ -37,9 +37,9 @@
 
     <div class="d-flex flex-wrap justify-content-evenly">
         @foreach ($docente as $item)
-        
+         
             <div class="card m-2 text-bg-dark align-self-stretch" style="width: 18rem;">
-                <img class=" p-3 card-img-top" src="https://img.freepik.com/vector-premium/icono-perfil-usuario-estilo-plano-ilustracion-vector-avatar-miembro-sobre-fondo-aislado-concepto-negocio-signo-permiso-humano_157943-15752.jpg" alt="Card image cap">
+                <img class=" p-3 card-img-top" src="{{secure_asset($item->fotos==null?"/images/person_4.jpg":$item->fotos->url )}}" alt="Card image cap">
                 <div class="card-body">
                     Nombre: {{$item->name}} <br>
                      Correo: {{$item->email}} <br>

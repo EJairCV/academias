@@ -28,7 +28,14 @@ class CampoController extends Controller
     }
  
     public function store(Request $request){
-        $request->validate([]);
+        $request->validate([
+            'name' => 'required',
+            
+            'lugar' => 'required',
+            'capacidad' => 'required',
+
+
+        ]);
 
 
         $clase = Campo::create($request->all());
@@ -41,7 +48,12 @@ class CampoController extends Controller
         return view('campo.ModificarCampoView', compact('campo'));
     }
     public function update(Campo $campo, Request $request){
-        $request->validate([]);
+        $request->validate([
+            'name' => 'required',
+            
+            'lugar' => 'required',
+            'capacidad' => 'required',
+        ]);
         $campo->update($request->all());
         return redirect()->route('campo.index');
     }

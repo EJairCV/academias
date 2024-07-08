@@ -42,6 +42,8 @@ class EquipoController extends Controller
         $alumnos = Usuario::whereDoesntHave('equipos', function($query) use ($equipo) {
             $query->where('equipo_id', $equipo->id);
         })->get();
+
+
         $usuariosEquipo = $equipo->alumnos()->get();
          
          
@@ -61,7 +63,7 @@ class EquipoController extends Controller
         $equipo->delete();
         return redirect()->route('equipo.index');
     }
-
+ 
     public function asignarequipo( Equipo $equipo,Usuario $usuario){
         $usuario->equipos()->attach($equipo->id);
         return redirect()->route('equipo.edit',compact('equipo'));
@@ -71,4 +73,6 @@ class EquipoController extends Controller
         
         return redirect()->route('equipo.edit',compact('equipo'));
     }
+
+    
 }

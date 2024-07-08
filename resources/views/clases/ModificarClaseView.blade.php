@@ -5,8 +5,9 @@
 @section('content')
 
 
-    <form id="form" action="{{route("clase.store")}}" method="POST" >
+    <form id="form" action="{{route("clase.update", $clase)}}" method="POST" >
         @csrf
+        @method('put')
         <h1>Modificar clase</h1>
         
 
@@ -66,6 +67,55 @@
           <a href="{{route('clase.index')}}"><button type="button" class="btn btn-outline-secondary">Regresar</button></a>
         </div>
       </div>
+
+      <div class="justify-content-between d-flex mt-5">
+
+        <div class="mx-3">
+            <h3>Jugadores disponibles</h3>
+
+            <div>
+                @foreach ($alumnos as $item)
+                    <form class="d-flex justify-content-between my-3"
+                        action="{{ route('post.asignar.clase', ['clase' => $clase->id, 'usuario' => $item->id]) }}"
+                        method="POST">@csrf
+                        <div>
+                            <span>{{ $item->name }}</span>
+                        </div>
+                        <div>
+                            <button class="btn btn-outline-info" type="submit">Asignar al aequipo</button>
+                        </div>
+                    </form>
+                @endforeach
+            </div>
+
+
+        </div>
+        <div class="mx-3">
+            <h3>Jugadores en el equipo</h3>
+            <div>
+
+            
+                @foreach ($usuariosClase as $item)
+                    
+                        
+                        <form class="d-flex justify-content-between my-3" action="{{ route('post.eliminar.de.clase', ['clase' => $clase->id, 'usuario' => $item->id]) }}"
+                            method="POST">
+                            @csrf
+                            <div>
+                              <span>{{$item->name}}</span>
+                            </div>
+                            <div>
+                              <button class="btn btn-outline-danger" type="submit">Eliminar del equipo</button>
+                            </div>
+                        </form>
+                    
+                @endforeach
+              </div>
+        </div>
+    </div>
+
+
+
 </div>
 <script>
     document.getElementById('docenteName').addEventListener('input', function() {
